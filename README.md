@@ -1,6 +1,8 @@
 # MakeYourAppMaterial
 Udacity Android Nanodegree App - Make Your App Material
 
+(Follow my dev progess here: https://tree.taiga.io/project/concavenp-makeyourappmaterial/)
+
 #Project Overview
 In this project, you will redesign an app to follow the Material Design guidelines and translate a set of static design mocks to a living and breathing app.
 
