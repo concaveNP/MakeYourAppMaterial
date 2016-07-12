@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MakeYourAppMaterial.iml" filepath="$PROJECT_DIR$/MakeYourAppMaterial.iml" />
+      <module fileurl="file://$PROJECT_DIR$/XYZReader/XYZReader.iml" filepath="$PROJECT_DIR$/XYZReader/XYZReader.iml" />
     </modules>
   </component>
 </project>
