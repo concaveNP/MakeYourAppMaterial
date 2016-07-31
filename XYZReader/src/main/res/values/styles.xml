@@ -22,17 +22,17 @@
     </style>
 
     <!--TODO: what to do for this v7 version-->
-    <!--<style name="Theme.App.Dark.Detail">-->
-        <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
-    <!--</style>-->
+    <style name="Theme.App.Dark.Detail">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
 
     <style name="Theme.App.Light" parent="Theme.AppCompat.Light">
 
     </style>
 
     <!--TODO: what to do for this v7 version-->
-    <!--<style name="Theme.App.Light.Detail">-->
-        <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
-    <!--</style>-->
+    <style name="Theme.App.Light.Detail">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
 
 </resources>
