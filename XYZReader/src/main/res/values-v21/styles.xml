@@ -18,7 +18,10 @@
 <resources>
 
     <style name="Theme.App.Dark" parent="Theme.AppCompat">
-
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
     </style>
 
     <style name="Theme.App.Dark.Detail" parent="Theme.App.Dark">
@@ -26,7 +29,10 @@
     </style>
 
     <style name="Theme.App.Light" parent="Theme.AppCompat.Light">
-
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
     </style>
 
     <style name="Theme.App.Light.Detail" parent="Theme.App.Light">
