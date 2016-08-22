@@ -17,22 +17,40 @@
 
 <resources>
 
-    <style name="Theme.App.Dark" parent="Theme.AppCompat">
-
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/myapp_primary</item>
+        <item name="colorPrimaryDark">@color/myapp_primary_dark</item>
+        <item name="colorAccent">@color/myapp_accent</item>
     </style>
 
-    <!--TODO: what to do for this v7 version-->
-    <style name="Theme.App.Dark.Detail">
-        <item name="android:statusBarColor">@android:color/transparent</item>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.App.Light" parent="Theme.AppCompat.Light">
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.Article">
+        <!--<item name="android:textColor">@android:color/primary_text_dark</item>-->
     </style>
 
-    <!--TODO: what to do for this v7 version-->
-    <style name="Theme.App.Light.Detail">
-        <item name="android:statusBarColor">@android:color/transparent</item>
+    <style name="AppTheme.Article.Title">
+        <item name="android:textSize">@dimen/myapp_text_size_title_material</item>
+        <item name="android:fontFamily">@string/myapp_font_family_headline_material</item>
+    </style>
+
+    <style name="AppTheme.Article.Byline">
+        <item name="android:textSize">@dimen/myapp_text_size_subhead_material</item>
+        <item name="android:fontFamily">@string/myapp_font_family_subhead_material</item>
+    </style>
+
+    <style name="AppTheme.Article.Body">
+        <item name="android:textSize">@dimen/myapp_text_size_body_1_material</item>
+        <item name="android:fontFamily">@string/myapp_font_family_body_1_material</item>
     </style>
 
 </resources>
+
