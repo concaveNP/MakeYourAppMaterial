@@ -134,8 +134,6 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
         TextView bylineView = (TextView) mRootView.findViewById(R.id.article_byline);
         bylineView.setMovementMethod(new LinkMovementMethod());
         TextView bodyView = (TextView) mRootView.findViewById(R.id.article_body);
-        bodyView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
-//        bodyView.setTypeface(Typeface.defaultFromStyle(R.style.Base_V7_Theme_AppCompat));
 
         if (mCursor != null) {
             mRootView.setAlpha(0);
