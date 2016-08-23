@@ -2,8 +2,6 @@ package com.example.xyzreader.ui;
 
 import android.app.Activity;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
@@ -19,10 +17,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageLoader;
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
+import com.squareup.picasso.Picasso;
 
 /**
  * A fragment representing a single Article detail screen. This fragment is
@@ -127,7 +124,9 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
     private void bindViews() {
 
         if (mRootView == null) {
+
             return;
+
         }
 
         TextView titleView = (TextView) mRootView.findViewById(R.id.article_title);
@@ -136,6 +135,7 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
         TextView bodyView = (TextView) mRootView.findViewById(R.id.article_body);
 
         if (mCursor != null) {
+
             mRootView.setAlpha(0);
             mRootView.setVisibility(View.VISIBLE);
             mRootView.animate().alpha(1);
@@ -150,40 +150,27 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
                             + "</font>"));
             bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY)));
 
-            ImageLoaderHelper.getInstance(getActivity()).getImageLoader()
-                    .get(mCursor.getString(ArticleLoader.Query.PHOTO_URL), new ImageLoader.ImageListener() {
-                        @Override
-                        public void onResponse(ImageLoader.ImageContainer imageContainer, boolean b) {
 
-                            Bitmap bitmap = imageContainer.getBitmap();
+            // Set the Article backdrop image
+            ImageView backdropImageView = (ImageView) mAppBarLayout.findViewById(R.id.article_details_backdrop);
 
-                            // Verify there is a image to work with
-                            if (bitmap != null) {
+            // Get the image URL
+            String url = mCursor.getString(ArticleLoader.Query.PHOTO_URL);
+            if (url != null) {
 
-                                // Verify there is an AppBar to manipulate
-                                if (mAppBarLayout != null) {
+                Picasso.with(getContext()).load(url).into(backdropImageView);
 
-                                    // Set the Article backdrop image
-                                    ImageView backdropImageView = (ImageView) mAppBarLayout.findViewById(R.id.article_details_backdrop);
-                                    backdropImageView.setImageBitmap(bitmap);
+            }
 
-                                }
+       } else {
 
-                            }
-
-                        }
-
-                        @Override
-                        public void onErrorResponse(VolleyError volleyError) {
-
-                        }
-                    });
-        } else {
             mRootView.setVisibility(View.GONE);
             titleView.setText("N/A");
             bylineView.setText("N/A" );
             bodyView.setText("N/A");
+
         }
+
     }
 
     @Override
