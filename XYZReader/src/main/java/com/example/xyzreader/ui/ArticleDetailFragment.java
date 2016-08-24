@@ -137,8 +137,12 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
                             System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
                             DateUtils.FORMAT_ABBREV_ALL).toString() + "  by "
                             + mCursor.getString(ArticleLoader.Query.AUTHOR) ));
-            bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY)));
 
+            // Provide the ability for links within the hypertext to bring up a web browser
+            String bodyText = mCursor.getString(ArticleLoader.Query.BODY);
+            bodyView.setLinksClickable(true);
+            bodyView.setMovementMethod(LinkMovementMethod.getInstance());
+            bodyView.setText( Html.fromHtml(bodyText) );
 
             // Set the Article backdrop image
             ImageView backdropImageView = (ImageView) mAppBarLayout.findViewById(R.id.article_details_backdrop);
