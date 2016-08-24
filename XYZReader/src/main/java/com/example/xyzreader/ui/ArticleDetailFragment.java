@@ -144,10 +144,8 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
                     DateUtils.getRelativeTimeSpanString(
                             mCursor.getLong(ArticleLoader.Query.PUBLISHED_DATE),
                             System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
-                            DateUtils.FORMAT_ABBREV_ALL).toString()
-                            + " by <font color='#ffffff'>"
-                            + mCursor.getString(ArticleLoader.Query.AUTHOR)
-                            + "</font>"));
+                            DateUtils.FORMAT_ABBREV_ALL).toString() + "  by "
+                            + mCursor.getString(ArticleLoader.Query.AUTHOR) ));
             bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY)));
 
 
