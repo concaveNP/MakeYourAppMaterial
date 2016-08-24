@@ -80,18 +80,6 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
             // The item within the database to use
             mItemId = getArguments().getLong(ARG_ITEM_ID);
 
-            Activity activity = this.getActivity();
-
-            // Capture the AppBar for manipulating it after data is available to do so
-            mAppBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
-
-        } else {
-
-            // TODO: no data to display - what then?
-
-            // With no data, we don't want to try and manipulate the AppBar
-            mAppBarLayout = null;
-
         }
 
     }
@@ -114,6 +102,9 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         mRootView = inflater.inflate(R.layout.fragment_article_detail, container, false);
+
+        // Capture the AppBar for manipulating it after data is available to do so
+        mAppBarLayout = (CollapsingToolbarLayout) getActivity().findViewById(R.id.toolbar_layout);
 
         bindViews();
 
