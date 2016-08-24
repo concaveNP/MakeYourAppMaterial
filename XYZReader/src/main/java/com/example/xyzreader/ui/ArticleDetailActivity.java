@@ -48,7 +48,11 @@ public class ArticleDetailActivity extends AppCompatActivity {
         // Show the Up button in the action bar.
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
+            // Show the back arrow
             actionBar.setDisplayHomeAsUpEnabled(true);
+
+            // Don't show a title (check for null via lint)
+            actionBar.setDisplayShowTitleEnabled(false);
         }
 
         // savedInstanceState is non-null when there is fragment state
