@@ -37,20 +37,26 @@
         <!--<item name="android:textColor">@android:color/primary_text_dark</item>-->
     </style>
 
-    <style name="AppTheme.Article.Title">
-        <item name="android:textSize">@dimen/myapp_text_size_title_material</item>
-        <item name="android:fontFamily">@string/myapp_font_family_headline_material</item>
-    </style>
-
-    <style name="AppTheme.Article.Byline">
-        <item name="android:textSize">@dimen/myapp_text_size_subhead_material</item>
-        <item name="android:fontFamily">@string/myapp_font_family_subhead_material</item>
-    </style>
-
     <style name="AppTheme.Article.Body">
         <item name="android:textSize">@dimen/myapp_text_size_body_1_material</item>
         <item name="android:fontFamily">@string/myapp_font_family_body_1_material</item>
     </style>
+
+    <style name="AppTheme.Article.Bar">
+        <item name="android:background">@color/myapp_primary</item>
+        <item name="android:textColor">@android:color/primary_text_dark</item>
+    </style>
+
+    <style name="AppTheme.Article.Bar.Title">
+        <item name="android:textSize">@dimen/myapp_text_size_title_material</item>
+        <item name="android:fontFamily">@string/myapp_font_family_headline_material</item>
+    </style>
+
+    <style name="AppTheme.Article.Bar.Byline">
+        <item name="android:textSize">@dimen/myapp_text_size_subhead_material</item>
+        <item name="android:fontFamily">@string/myapp_font_family_subhead_material</item>
+    </style>
+
 
 </resources>
 

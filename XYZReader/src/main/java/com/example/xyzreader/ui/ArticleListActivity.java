@@ -163,8 +163,8 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
                     // Get the position in the displayed list of items
                     int position = vh.getAdapterPosition();
 
-                    // Translate the position into a
-                    startActivity(new Intent(Intent.ACTION_VIEW, ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition()))));
+                    // Start the activity by giving it the position in the DB of the item in question
+                    startActivity(new Intent(Intent.ACTION_VIEW, ItemsContract.Items.buildItemUri(getItemId(position))));
 
                 }
 
