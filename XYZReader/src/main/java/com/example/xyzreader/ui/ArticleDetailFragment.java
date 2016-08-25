@@ -122,6 +122,10 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
 
         TextView titleView = (TextView) mRootView.findViewById(R.id.article_title);
         TextView bylineView = (TextView) mRootView.findViewById(R.id.article_byline);
+
+//        TextView titleView = (TextView) mAppBarLayout.findViewById(R.id.article_title_test);
+//        TextView bylineView = (TextView) mAppBarLayout.findViewById(R.id.article_byline_test);
+
         bylineView.setMovementMethod(new LinkMovementMethod());
         TextView bodyView = (TextView) mRootView.findViewById(R.id.article_body);
 

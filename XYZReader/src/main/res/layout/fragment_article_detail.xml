@@ -5,25 +5,33 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/article_title"
-        style="@style/AppTheme.Article.Title"
-        android:paddingTop="@dimen/myapp_text_edge_padding_material"
-        android:paddingBottom="@dimen/myapp_text_common_padding_material"
-        android:paddingLeft="@dimen/myapp_text_edge_padding_material"
-        android:paddingRight="@dimen/myapp_text_edge_padding_material" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/AppTheme.Article.Bar"
+            android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/article_byline"
-        style="@style/AppTheme.Article.Byline"
-        android:paddingTop="@dimen/myapp_text_common_padding_material"
-        android:paddingLeft="@dimen/myapp_text_edge_padding_material"
-        android:paddingRight="@dimen/myapp_text_edge_padding_material"
-        android:paddingBottom="@dimen/myapp_text_uncommon_padding_material" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/article_title"
+                style="@style/AppTheme.Article.Bar.Title"
+                android:paddingTop="@dimen/myapp_text_edge_padding_material"
+                android:paddingBottom="@dimen/myapp_text_common_padding_material"
+                android:paddingLeft="@dimen/myapp_text_edge_padding_material"
+                android:paddingRight="@dimen/myapp_text_edge_padding_material" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/article_byline"
+                style="@style/AppTheme.Article.Bar.Byline"
+                android:paddingTop="@dimen/myapp_text_common_padding_material"
+                android:paddingLeft="@dimen/myapp_text_edge_padding_material"
+                android:paddingRight="@dimen/myapp_text_edge_padding_material"
+                android:paddingBottom="@dimen/myapp_text_edge_padding_material" />
+
+        </LinearLayout>
 
     <TextView
         android:id="@+id/article_body"

@@ -33,14 +33,10 @@ public class ArticleDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                // TODO: this should be a "share" button that ... Yes! Shares!
-
                 startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(ArticleDetailActivity.this)
                         .setType("text/plain")
                         .setText("Some sample text")
                         .getIntent(), getString(R.string.action_share)));
-
-                // Snackbar.make(view, "Replace with your own detail action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
 
             }
         });
