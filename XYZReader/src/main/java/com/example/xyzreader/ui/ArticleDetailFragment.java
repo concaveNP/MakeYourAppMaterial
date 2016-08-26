@@ -1,9 +1,9 @@
 package com.example.xyzreader.ui;
 
-import android.app.Activity;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
@@ -122,10 +122,6 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
 
         TextView titleView = (TextView) mRootView.findViewById(R.id.article_title);
         TextView bylineView = (TextView) mRootView.findViewById(R.id.article_byline);
-
-//        TextView titleView = (TextView) mAppBarLayout.findViewById(R.id.article_title_test);
-//        TextView bylineView = (TextView) mAppBarLayout.findViewById(R.id.article_byline_test);
-
         bylineView.setMovementMethod(new LinkMovementMethod());
         TextView bodyView = (TextView) mRootView.findViewById(R.id.article_body);
 
@@ -150,6 +146,14 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
 
             // Set the Article backdrop image
             ImageView backdropImageView = (ImageView) mAppBarLayout.findViewById(R.id.article_details_backdrop);
+
+            // Set the text that will be the FAB button "share" text
+            FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.app_fab);
+            if (fab != null) {
+
+                fab.setTag(mCursor.getString(ArticleLoader.Query.TITLE));
+
+            }
 
             // Get the image URL
             String url = mCursor.getString(ArticleLoader.Query.PHOTO_URL);

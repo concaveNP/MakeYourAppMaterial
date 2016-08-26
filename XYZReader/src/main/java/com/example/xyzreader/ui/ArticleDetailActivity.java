@@ -18,6 +18,8 @@ import com.example.xyzreader.data.ItemsContract;
  */
 public class ArticleDetailActivity extends AppCompatActivity {
 
+    private FloatingActionButton fab;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -28,14 +30,23 @@ public class ArticleDetailActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.app_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                // Extract the text saved to a tag via the cursor lookup within the fragment
+                String tag = (String)fab.getTag();
+
+                // If there was no tag string found default to the name of the app
+                if ((tag == null) || (tag.isEmpty())) {
+                    tag = getResources().getString(R.string.app_name);
+                }
+
+                // Give the user a chance to share the article title
                 startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(ArticleDetailActivity.this)
                         .setType("text/plain")
-                        .setText("Some sample text")
+                        .setText(tag)
                         .getIntent(), getString(R.string.action_share)));
 
             }
