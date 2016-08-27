@@ -49,7 +49,14 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
         //final View toolbarContainerView = findViewById(R.id.toolbar_container);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
 
+                refresh();
+
+            }
+        });
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
         getSupportLoaderManager().initLoader(0,null,this);
@@ -64,6 +71,12 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
 
     private void refresh() {
 
+        // Let the Swiper know we are swiping
+        if (!mSwipeRefreshLayout.isRefreshing()) {
+            mSwipeRefreshLayout.setRefreshing(true);
+        }
+
+        // TODO: eh?
         startService(new Intent(this, UpdaterService.class));
 
     }
@@ -86,8 +99,6 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
 
     }
 
-    private boolean mIsRefreshing = false;
-
     private BroadcastReceiver mRefreshingReceiver = new BroadcastReceiver() {
 
         @Override
@@ -95,18 +106,15 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
 
             if (UpdaterService.BROADCAST_ACTION_STATE_CHANGE.equals(intent.getAction())) {
 
-                mIsRefreshing = intent.getBooleanExtra(UpdaterService.EXTRA_REFRESHING, false);
-                updateRefreshingUI();
+                boolean mIsRefreshing = intent.getBooleanExtra(UpdaterService.EXTRA_REFRESHING, false);
+
+                mSwipeRefreshLayout.setRefreshing(mIsRefreshing);
 
             }
 
         }
 
     };
-
-    private void updateRefreshingUI() {
-        mSwipeRefreshLayout.setRefreshing(mIsRefreshing);
-    }
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
@@ -208,15 +216,22 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
+
         public ImageView thumbnailView;
         public TextView titleView;
         public TextView subtitleView;
 
         public ViewHolder(View view) {
+
             super(view);
+
             thumbnailView = (ImageView) view.findViewById(R.id.thumbnail);
             titleView = (TextView) view.findViewById(R.id.article_title);
             subtitleView = (TextView) view.findViewById(R.id.article_subtitle);
+
         }
+
     }
+
 }
+
