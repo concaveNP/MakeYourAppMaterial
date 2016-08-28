@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.LoaderManager;
+import android.support.v4.app.ShareCompat;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.format.DateUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -47,8 +49,6 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        //final View toolbarContainerView = findViewById(R.id.toolbar_container);
-
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -77,7 +77,6 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
             mSwipeRefreshLayout.setRefreshing(true);
         }
 
-        // TODO: eh?
         startService(new Intent(this, UpdaterService.class));
 
     }
@@ -144,11 +143,27 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
     }
 
     public void onWhatsHot(View view) {
-        Snackbar.make(view, "Declare this item as HOT", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+
+        Snackbar.make(view, "Example of declaring this item as HOT!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+
     }
 
     public void onShare(View view) {
-        Snackbar.make(view, "Share this item", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+
+        // Extract the text saved to a tag via the cursor lookup within the fragment
+        String tag = (String)view.getTag();
+
+        // If there was no tag string found default to the name of the app
+        if ((tag == null) || (tag.isEmpty())) {
+            tag = getResources().getString(R.string.app_name);
+        }
+
+        // Give the user a chance to share the article title
+        startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(this)
+                .setType("text/plain")
+                .setText(tag)
+                .getIntent(), getString(R.string.action_share)));
+
     }
 
     private class Adapter extends RecyclerView.Adapter<ViewHolder> {
@@ -196,15 +211,7 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
 
             mCursor.moveToPosition(position);
             holder.titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
-            holder.subtitleView.setText(
-                    "by " + mCursor.getString(ArticleLoader.Query.AUTHOR));
-//                    DateUtils.getRelativeTimeSpanString(
-//                            mCursor.getLong( ArticleLoader.Query.PUBLISHED_DATE),
-//                            System.currentTimeMillis(),
-//                            DateUtils.HOUR_IN_MILLIS,
-//                            DateUtils.FORMAT_ABBREV_ALL).toString()
-//                            + " by "
-//                            + mCursor.getString(ArticleLoader.Query.AUTHOR));
+            holder.subtitleView.setText( "by " + mCursor.getString(ArticleLoader.Query.AUTHOR));
 
             // Get the image URL
             String url = mCursor.getString(ArticleLoader.Query.THUMB_URL);
@@ -213,6 +220,9 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
                 Picasso.with(getApplicationContext()).load(url).into(holder.thumbnailView);
 
             }
+
+            // Set the tag for the share text
+            holder.shareButton.setTag(mCursor.getString(ArticleLoader.Query.TITLE));
 
         }
 
@@ -230,6 +240,7 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
         public ImageView thumbnailView;
         public TextView titleView;
         public TextView subtitleView;
+        public ImageButton shareButton;
 
         public ViewHolder(View view) {
 
@@ -238,6 +249,7 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
             thumbnailView = (ImageView) view.findViewById(R.id.thumbnail);
             titleView = (TextView) view.findViewById(R.id.article_title);
             subtitleView = (TextView) view.findViewById(R.id.article_subtitle);
+            shareButton = (ImageButton) view.findViewById(R.id.share_button);
 
         }
 

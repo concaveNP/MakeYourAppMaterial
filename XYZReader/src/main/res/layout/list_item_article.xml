@@ -59,6 +59,7 @@
             android:gravity="right">
 
             <ImageButton
+                android:id="@+id/share_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/myapp_primary_800"
@@ -68,6 +69,7 @@
                 android:src="@drawable/ic_share_white_24px" />
 
             <ImageButton
+                android:id="@+id/hot_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/myapp_primary_800"
