@@ -1,7 +1,8 @@
 <resources>
 
-    <!--Material Design values-->
+    <!--Material Design specification values-->
     <dimen name="myapp_text_size_title_material">20sp</dimen>
+    <dimen name="myapp_text_size_card_material">14sp</dimen>
     <dimen name="myapp_text_size_subhead_material">16sp</dimen>
     <dimen name="myapp_text_size_medium_material">18sp</dimen>
     <dimen name="myapp_text_size_body_1_material">14sp</dimen>
@@ -9,18 +10,12 @@
     <dimen name="myapp_text_edge_padding_material">16dp</dimen>
     <dimen name="myapp_text_common_padding_material">4dp</dimen>
     <dimen name="myapp_text_uncommon_padding_material">8dp</dimen>
-
-    <!-- detail -->
-    <dimen name="detail_title_text_size">32sp</dimen>
-    <dimen name="detail_body_text_size">22sp</dimen>
-    <item name="detail_body_line_spacing_multiplier" format="float" type="fraction">1.25</item>
-    <!--<dimen name="app_bar_height">300dp</dimen>-->
-    <!--<dimen name="app_bar_height">425dp</dimen>-->
-    <dimen name="app_bar_height">300dp</dimen>
-    <dimen name="app_bar_image_height">300dp</dimen>
-    <dimen name="app_bar_text_height">125dp</dimen>
-    <dimen name="fab_elevation">2dp</dimen>
-    <dimen name="fab_press_translation_z">6dp</dimen>
+    <dimen name="myapp_button_padding_material">8dp</dimen>
+    <dimen name="myapp_divider_material">1dp</dimen>
+    <dimen name="fab_elevation">6dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+    <!--My Design considerations values-->
+    <dimen name="app_bar_height">300dp</dimen> <!-- The size of the image within the details activity -->
 
 </resources>

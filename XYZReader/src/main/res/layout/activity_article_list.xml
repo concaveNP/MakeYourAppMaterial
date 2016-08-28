@@ -19,12 +19,12 @@
             android:layout_height="?attr/actionBarSize"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
+            <!--TODO: Could not get the SVG logo working, AI project is in the Illustrator dir -->
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/logo" />
-                <!--android:src="@drawable/logo2_artboard" />-->
 
         </android.support.v7.widget.Toolbar>
 
@@ -39,7 +39,7 @@
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/myapp_primary_100"
+            android:background="@color/myapp_grey_50"
             android:paddingLeft="@dimen/list_side_margin"
             android:paddingRight="@dimen/list_side_margin"
             android:scrollbarStyle="outsideOverlay" />

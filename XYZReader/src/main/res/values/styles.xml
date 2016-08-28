@@ -34,20 +34,20 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
-    <style name="AppTheme.Item">
-        <item name="android:background">@color/myapp_white</item>
+    <style name="AppTheme.Card">
+        <item name="android:background">@color/myapp_primary_800</item>
     </style>
 
-    <style name="AppTheme.Item.Title">
-        <item name="android:textSize">@dimen/myapp_text_size_title_material</item>
+    <style name="AppTheme.Card.Title">
+        <item name="android:textSize">@dimen/myapp_text_size_card_material</item>
         <item name="android:fontFamily">@string/myapp_font_family_headline_material</item>
-        <item name="android:textColor">@color/myapp_dark_on_light_primary_text</item>
+        <item name="android:textColor">@color/myapp_light_on_dark_primary_text</item>
     </style>
 
-    <style name="AppTheme.Item.Byline">
-        <item name="android:textSize">@dimen/myapp_text_size_subhead_material</item>
+    <style name="AppTheme.Card.Byline">
+        <item name="android:textSize">@dimen/myapp_text_size_card_material</item>
         <item name="android:fontFamily">@string/myapp_font_family_subhead_material</item>
-        <item name="android:textColor">@color/myapp_dark_on_light_secondary_text</item>
+        <item name="android:textColor">@color/myapp_light_on_dark_secondary_text</item>
     </style>
 
     <style name="AppTheme.Article">
@@ -55,13 +55,13 @@
     </style>
 
     <style name="AppTheme.Article.Body">
-        <item name="android:textSize">@dimen/myapp_text_size_medium_material</item>
+        <item name="android:textSize">@dimen/myapp_text_size_body_1_material</item>
         <item name="android:fontFamily">@string/myapp_font_family_body_1_material</item>
         <item name="android:textColor">@color/myapp_dark_on_light_primary_text</item>
     </style>
 
     <style name="AppTheme.Article.Bar">
-        <item name="android:background">@color/myapp_primary_500</item>
+        <item name="android:background">@color/myapp_primary_800</item>
     </style>
 
     <style name="AppTheme.Article.Bar.Title">

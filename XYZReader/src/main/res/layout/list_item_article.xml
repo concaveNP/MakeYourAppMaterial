@@ -13,6 +13,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/AppTheme.Card"
         android:orientation="vertical">
 
         <ImageView
@@ -26,10 +27,10 @@
             android:id="@+id/article_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/AppTheme.Item.Title"
+            style="@style/AppTheme.Card.Title"
             android:ellipsize="end"
             android:maxLines="4"
-            android:paddingBottom="@dimen/myapp_text_common_padding_material"
+            android:paddingBottom="@dimen/myapp_text_uncommon_padding_material"
             android:paddingLeft="@dimen/myapp_text_edge_padding_material"
             android:paddingRight="@dimen/myapp_text_edge_padding_material"
             android:paddingTop="@dimen/myapp_text_edge_padding_material"/>
@@ -38,7 +39,7 @@
             android:id="@+id/article_subtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/AppTheme.Item.Byline"
+            style="@style/AppTheme.Card.Byline"
             android:ellipsize="end"
             android:maxLines="1"
             android:paddingBottom="@dimen/myapp_text_edge_padding_material"
@@ -46,6 +47,36 @@
             android:paddingLeft="@dimen/myapp_text_edge_padding_material"
             android:paddingRight="@dimen/myapp_text_edge_padding_material"
             android:singleLine="true"/>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/myapp_divider_material"
+            android:background="@color/myapp_light_on_dark_dividers"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/myapp_button_padding_material"
+            android:gravity="right">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/myapp_primary_800"
+                android:clickable="true"
+                android:onClick="onShare"
+                android:padding="@dimen/myapp_button_padding_material"
+                android:src="@drawable/ic_share_white_24px" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/myapp_primary_800"
+                android:clickable="true"
+                android:onClick="onWhatsHot"
+                android:padding="@dimen/myapp_button_padding_material"
+                android:src="@drawable/ic_whatshot_white_24px" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
