@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -142,6 +143,14 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
 
     }
 
+    public void onWhatsHot(View view) {
+        Snackbar.make(view, "Declare this item as HOT", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+    }
+
+    public void onShare(View view) {
+        Snackbar.make(view, "Share this item", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+    }
+
     private class Adapter extends RecyclerView.Adapter<ViewHolder> {
 
         private Cursor mCursor;
@@ -188,13 +197,14 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
             mCursor.moveToPosition(position);
             holder.titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
             holder.subtitleView.setText(
-                    DateUtils.getRelativeTimeSpanString(
-                            mCursor.getLong( ArticleLoader.Query.PUBLISHED_DATE),
-                            System.currentTimeMillis(),
-                            DateUtils.HOUR_IN_MILLIS,
-                            DateUtils.FORMAT_ABBREV_ALL).toString()
-                            + " by "
-                            + mCursor.getString(ArticleLoader.Query.AUTHOR));
+                    "by " + mCursor.getString(ArticleLoader.Query.AUTHOR));
+//                    DateUtils.getRelativeTimeSpanString(
+//                            mCursor.getLong( ArticleLoader.Query.PUBLISHED_DATE),
+//                            System.currentTimeMillis(),
+//                            DateUtils.HOUR_IN_MILLIS,
+//                            DateUtils.FORMAT_ABBREV_ALL).toString()
+//                            + " by "
+//                            + mCursor.getString(ArticleLoader.Query.AUTHOR));
 
             // Get the image URL
             String url = mCursor.getString(ArticleLoader.Query.THUMB_URL);
